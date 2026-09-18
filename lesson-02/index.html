@@ -6,9 +6,39 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
-        
-    </script>
+<script>
+let score = 10;              // 10
+score += 5;                  // 15 
+score *= 2;                  // 30
+let bonus = score % 7;       // 2
+score -= bonus;              // 28
+let old = ++score;           // 29
+let next = ++score;          // 30
+score /= 3;                  // 10 
+bonus--;                     // 1
+score = score + bonus * 4;   // 14
 
+//let score = 10;              // 10
+//score *= 2;                  // 20 
+//score += 5;                  // 25
+//let bonus = score % 7;       // 4
+//score -= bonus;              // 21
+//let old = score++;           // 21
+//let next = ++score;          // 23
+//score /= 3;                  // 7 
+//bonus--;                     // 3
+//score = score + bonus * 4;   // 19
+
+// 1. Why is old 28 but score 29 after line 6?
+// A: old is 28 because it uses a postfix which gives old the value of score before it is calculated. score is 29 because it uses a prefix which gives score the value of score after it is calculated.
+// 2. Why doesn’t line 10 give 44?
+// A: Because bonus is 1, and 1 * 4 = 4, so score = 10 + 4 = 14.
+// 3. What would score be if line 3 came before line 2?
+// A: 19
+
+// old: 29
+// next: 30
+// score: 14
+</script>
 </body>
 </html>

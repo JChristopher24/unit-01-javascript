@@ -6,9 +6,18 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
-        
-    </script>
+<script>
+// Name Formatter
+let raw = "  jOHN smith ";
+
+let clean = raw.toLowerCase().trim();   // 1. remove the extra spaces, make it all lowercase
+let space = clean.charAt(" ");   // 2. find the space between the names
+let first = clean.slice(0,4);   // 3. cut out the first name
+let last  = clean.slice(5);   // 4. cut out the last name
+first = first.replace("j","J");       // 5. capitalize each one
+last  = last.replace("s","S");
+console.log(last,first);  // 6. print "Last, First"
+</script>
 
 </body>
 </html>

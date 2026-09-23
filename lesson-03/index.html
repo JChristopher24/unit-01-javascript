@@ -11,12 +11,21 @@
 let raw = "  jOHN smith ";
 
 let clean = raw.toLowerCase().trim();   // 1. remove the extra spaces, make it all lowercase
-let space = clean.charAt(" ");   // 2. find the space between the names
-let first = clean.slice(0,4);   // 3. cut out the first name
-let last  = clean.slice(5);   // 4. cut out the last name
+let space = clean.indexOf(" ");   // 2. find the space between the names
+let first = clean.slice(0,space);   // 3. cut out the first name
+let last  = clean.slice(space + 1);   // 4. cut out the last name
 first = first.replace("j","J");       // 5. capitalize each one
 last  = last.replace("s","S");
-console.log(last,first);  // 6. print "Last, First"
+console.log(last + ", " + first);  // 6. print "Last, First"
+
+let firstI = first.slice(0,1);
+let lastI = last.slice(0,1);
+console.log(firstI + "." + lastI);
+let firstl = firstI.toLowerCase();
+let lastl = lastI.toLowerCase();
+console.log(firstl + lastl);
+let full = first + last;
+console.log(full.length);
 </script>
 
 </body>

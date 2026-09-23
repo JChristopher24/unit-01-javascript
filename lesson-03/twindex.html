@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// Concession Stand Cleanup - Day 4B
+let priceTag = "$3.25";
+let quantity = "8 sodas";
+let weight   = "2.5 lb bag of ice";
+let coupon   = "SAVE5";
+
+// 0. See the problem first. Predict, then run this line.
+console.log(priceTag * quantity);
+
+// 1. Turn priceTag into the number 3.25 (careful: the $ is in the way)
+let price = parseFloat(priceTag.slice(1));
+
+// 2. Turn quantity into the number 8
+let qty = parseInt(quantity);
+
+// 3. Multiply them
+let total = (price * qty);
+
+// 4. Print: Order total: $26
+console.log("Order total: $" + total);
+
+let wgt = parseFloat(weight);
+console.log(wgt);
+let wgtl = String(wgt).length;
+console.log(wgtl);
+
+console.log(isNaN(wgtl));
+
+</script>
+</body>
+</html>

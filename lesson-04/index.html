@@ -7,8 +7,21 @@
 </head>
 <body>
     <script>
+
+        let bill = parseFloat(prompt("What is the Bill?"));
+
+        let tip = parseFloat(prompt("What is the Tip?"));
+
+        let people = parseInt(prompt("How many people are there?"));
+
+        let total = bill * (1 + tip / 100);
+
+        let perPerson = total / people;
         
-    </script>
+        alert("Total Bill is " + total.toLocaleString("en-US", { style:"currency", currency: "USD"}))
+
+        alert("Each person should pay " + perPerson.toLocaleString("en-US", { style:"currency", currency: "USD"}))
+</script>
 
 </body>
 </html>

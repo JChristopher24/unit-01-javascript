@@ -7,7 +7,43 @@
 </head>
 <body>
     <script>
-        
+
+        let day = prompt("What day is it?")
+
+        if (day !== null) {
+            day = day.toLowerCase()
+        }
+
+        switch (day) {
+            case "monday":
+                alert("Monday: Soccer practice");
+                break;
+            case "tuesday":
+                alert("Tuesday: Math Quiz");
+                break;
+            case "wednesday":
+                alert("Wednesday: Book Club");
+                break;
+            case "thursday":
+                alert("Thursday: English Test");
+                break;
+            case "friday":
+                alert("Friday: Field trip");
+                break;
+            case "saturday":
+                alert("Saturday: Soccer game");
+                alert("It's the weekend!");
+                break;
+            case "sunday":
+                alert("Sunday: Rest day");
+                alert("It's the weekend!");
+                break;
+            case null:
+                alert("No day entered");
+                break;
+            default:
+                alert("Invalid Day");
+        }
     </script>
 
 </body>

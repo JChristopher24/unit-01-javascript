@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+let playlist = ["Morning Drive", "Rainy Day", "Static"];
+
+// Core 1: Add a song to the END of the list. Return the new length.
+function addToEnd(list, song) {
+  // TODO
+  list.push(song);
+  return list.length;
+}
+
+addToEnd(playlist, "Night Bus");
+
+// Core 2: Add a song to the FRONT of the list. Return the new length.
+function addToFront(list, song) {
+  // TODO
+}
+
+// Core 3: Remove and return the LAST song.
+function removeLast(list) {
+  // TODO
+}
+
+// Core 4: Remove and return the FIRST song.
+function removeFirst(list) {
+  // TODO
+}
+
+// Core 5: Print each song as a numbered list starting at 1.
+function printPlaylist(list) {
+  // TODO: use a for loop and list.length
+}
+
+// Test calls (do not change)
+addToEnd(playlist, "Night Bus");
+addToFront(playlist, "Station ID");
+console.log("Removed: " + removeLast(playlist));
+printPlaylist(playlist);
+</script>
+</body>
+</html>

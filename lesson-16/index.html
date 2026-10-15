@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// ===== Core 1: Seating Chart =====
+// 1a. Replace "Name" with classmates' first names (3 rows, 4 seats each)
+let seating = [
+    ["John", "Akadir", "Anastasia", "Abigail"],  // row 0
+    ["Elijah", "Carter", "Steven", "Isaiah"],     // row 1
+    ["Jimmy", "Onnjel", "Emmanuel", "Chrisley"]  // row 2
+];
+
+// 1b. Print each row on one line, like: Row 1: Mia Leo Zoe Sam
+for (let r = 0; r < seating.length; r++) {
+    let rowNames = "";
+    for (let c = 0; c < seating[r].length; c++) {
+        rowNames += seating[r][c] + ", ";
+    }
+    console.log("Row " + r + ": " + rowNames);
+}
+
+// 1c. Log the name in row 2, seat 3
+console.log("Row 2, seat 3:", seating[2][3]);
+
+// 1c. Move a new student into row 0, seat 1, then print the chart again
+seating[0][1] = "Alicia";
+// Copy your loop from 1b here
+for (let r = 0; r < seating.length; r++) {
+    let rowNames = "";
+    for (let c = 0; c < seating[r].length; c++) {
+        rowNames += seating[r][c] + ", ";
+    }
+    console.log("Row " + r + ": " + rowNames);
+}
+// ===== Core 2: Test-Score Stats =====
+let testScores = [72, 95, 100, 64, 81, 9, 88];
+
+// 2a. Default sort, then explain the result in a comment
+console.log("Default sort:", testScores.sort());
+// Why is it out of order?
+
+// 2b. Sort low to high correctly
+testScores.sort((a, b) => a - b);
+console.log("Low to high:", testScores);
+
+// 2c. Lowest and highest (use indexes, not typed numbers)
+console.log("Lowest:", testScores[0]);
+console.log("Highest:", testScores[testScores.length - 1]);
+
+// 2d. Add up the scores with a for loop, then average
+let total = 0;
+for (let i = 0; i < testScores.length; i++) {
+    total += testScores[i];
+}
+let average = total / testScores.length;
+console.log("Average:", average.toFixed(1));
+
+// ===== Core 3: Student Search =====
+let roster = ["Jordan", "Priya", "Marcus", "Lena", "Priya"];
+
+// 3a. Ask for a name
+let searchName = prompt("Enter a student's name:");
+
+// 3b and 3c. Found or not? If found, also show the LAST position
+if (roster.indexOf(searchName) !== -1) {
+    console.log("Found at position " + roster.indexOf(searchName));
+    console.log("Last position: " + roster.lastIndexOf(searchName));
+} else {
+    console.log("Not on the roster");
+}
+
+let seating = findSeat(chart, name); {
+    
+}
+</script>
+</body>
+</html>

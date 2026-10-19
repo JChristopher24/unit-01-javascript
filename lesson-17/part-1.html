@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// ===== My Student Profile =====
+
+// ----- CORE -----
+
+// Core 1: Create an object named student with three properties:
+//   name (a string), grade (a number), and scores (an array of three test scores).
+
+let student = {
+    name: "Alicia",
+    grade: 11,
+    scores: [88, 94, 90],
+    describe: function() {
+        return this.name + " is in grade " + this.grade;
+    },
+    getHighest: function() {
+        return Math.max(...this.scores);
+    },
+    addBonus: function(points) {
+        this.scores[0] += points;
+    },
+    getLetter: function() {
+        let highest = this.getHighest();
+        if (highest >= 90) {
+            return "A";
+        } else if (highest >= 80) {
+            return "B";
+        } else if (highest >= 70) {
+            return "C";
+        } else if (highest >= 60) {
+            return "D";
+        } else {
+            return "F";
+        }
+    }
+};
+
+// Core 2: Log the name using DOT notation.
+//   Log the grade using BRACKET notation.
+//   Log the second score using student.scores[1].
+
+console.log(student.grade);
+console.log(student["grade"]);
+console.log(student.scores[1]);
+
+// Core 3: Change grade to a new value. Add a new homeroom property.
+//   Log both. Then log a property that does NOT exist.
+//   Write a comment explaining what printed.
+
+student.grade = 12;
+student.homeroom = "801";
+console.log(student.grade);
+console.log(student.homeroom);
+
+// Core 4: Inside your object, add a method named describe that RETURNS
+//   a sentence like "Maya is in grade 12". Use this.
+//   Then log student.describe() here.
+
+console.log(student.describe());
+
+
+// ----- STRETCH -----
+
+// Stretch 5: Inside your object, add a method named getHighest that RETURNS
+//   the highest of this.scores[0], this.scores[1], and this.scores[2].
+//   Hint: which Math method from Day 10 finds the largest number?
+//   Log the result here.
+
+console.log(student.getHighest());
+
+// Stretch 6: Inside your object, add a method named addBonus(points)
+//   that adds points to the FIRST score.
+//   Here: print the highest score, call student.addBonus(10),
+//   then print the highest score again.
+
+student.addBonus(10);
+console.log(student.getHighest());
+
+// ----- CHALLENGE -----
+
+// Challenge 7: Inside your object, add a method named getLetter that uses
+//   this.getHighest() and an if...else if chain (or switch)
+//   to return "A", "B", "C", "D", or "F".
+//   Print a report line like: Maya (Grade 12): 90 - A
+
+console.log(student.getLetter());
+
+</script>
+</body>
+</html>

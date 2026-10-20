@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+function Student(name, grade, scores) {
+    this.name = name;
+    this.grade = grade;
+    this.scores = scores;
+    this.getHighest = function() {
+        return Math.max(this.scores[0], this.scores[1], this.scores[2]);
+    };
+    this.describe = function() {
+        return this.name + " is in grade " + this.grade;
+    };
+}
+
+let roster = [
+    new Student("Alicia", 11, [92, 89, 96]),
+    new Student("Akadir", 10, [98, 80, 85]),
+    new Student("Abigail", 12, [92, 87, 95])
+];
+
+console.log(roster[0].name + ": " + roster[0].getHighest());
+console.log(roster[1].name + ": " + roster[1].getHighest());
+console.log(roster[2].name + ": " + roster[2].getHighest());
+
+roster[0].scores[1] = 100;
+roster[0].homeroom = "802";
+console.log(roster[0].name + " in " + roster[0].homeroom + " has a high score of " + roster[0].scores[1]);
+
+console.log(roster[0].describe());
+console.log(roster[1].describe());
+console.log(roster[2].describe());
+
+</script>
+</body>
+</html>

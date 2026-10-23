@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// STEP 1
+function Student(name, scores) {
+    this.name = name;
+    this.scores = scores;
+    for (let i = 0; i < this.scores.length; i++) {
+        if (isNaN(this.scores[i]) || this.scores[i] < 0 || this.scores[i] > 100) {
+            throw new Error("Invalid score for " + name + ": " + this.scores[i]);
+        }
+    }
+    this.getAverage = function() {
+        let total = 0;
+        for (let i = 0; i < this.scores.length; i++) {
+            total += this.scores[i];
+        }
+        return (total / this.scores.length);
+    }
+}
+
+// STEP 2
+
+let roster = [];
+
+try {
+    roster.push(new Student("Ava", [92, 88, 95]));
+} catch (err) {
+    console.log(err.message);
+}
+
+try {
+    roster.push(new Student("Ben", [75, 82, 80]));
+} catch (err) {
+    console.log(err.message);
+}
+
+try {
+    roster.push(new Student("Finn", [88, "ninety", 91]));
+} catch (err) {
+    console.log(err.message);
+}
+
+try {
+    roster.push(new Student("Chloe", [68, 71, 59]));
+} catch (err) {
+    console.log(err.message);
+}
+
+try {
+    roster.push(new Student("Diego", [85, 90, 78]));
+} catch (err) {
+    console.log(err.message);
+}
+
+try {
+    roster.push(new Student("Gia", [94, -5, 87]));
+} catch (err) {
+    console.log(err.message);
+}
+
+try {
+    roster.push(new Student("Emma", [55, 62, 48]));
+} catch (err) {
+    console.log(err.message);
+}
+
+// STEP 3
+
+function getLetter(average) {
+    if (average >= 90) {
+        return "A";
+    } else if (average >= 80) {
+        return "B";
+    } else if (average >= 70) {
+        return "C";
+    } else if (average >= 60) {
+        return "D";
+    } else {
+        return "F";
+    }
+}
+
+// STEP 4
+
+function findHighest(list) {
+    this.list = list;
+    let highestStudent = this.list[0];
+    for (let i = 1; i < this.list.length; i++) {
+        if (this.list[i].getAverage() > highestStudent.getAverage()) {
+            highestStudent = this.list[i];
+        }
+    }
+    return highestStudent;
+}
+
+function findLowest(list) {
+    this.list = list;
+    let lowestStudent = this.list[0];
+    for (let i = 1; i < this.list.length; i++) {
+        if (this.list[i].getAverage() < lowestStudent.getAverage()) {
+            lowestStudent = this.list[i];
+        }
+    }
+    return lowestStudent;
+}
+
+// STEP 5
+
+function sortByAverage(list) {
+    this.list = list;
+    this.list.sort((a, b) => b.getAverage() - a.getAverage());
+}
+
+// STEP 6
+
+function printReport(list) {
+    this.list = list;
+    let today = new Date();
+    today = today.toLocaleDateString("en-US");
+    console.log("Report for " + today);
+    for (let i = 0; i < this.list.length; i++) {
+        console.log((i + 1) + ". " + this.list[i].name + ": " + this.list[i].getAverage().toFixed(1));
+    }
+    console.log(findHighest(this.list).name + " has the highest average of " + findHighest(this.list).getAverage().toFixed(1));
+    console.log(findLowest(this.list).name + " has the lowest average of " + findLowest(this.list).getAverage().toFixed(1));
+}
+
+sortByAverage(roster);
+printReport(roster);
+
+// STEP 1: Student constructor with validation
+// Write a constructor function Student(name, scores).
+// FIRST, loop through scores. If any score is not a number,
+// below 0, or above 100:
+//     throw new Error("Invalid score for " + name + ": " + score)
+// THEN give it the properties name and scores.
+// Add a method getAverage() that loops through this.scores
+// and returns the average as a number.
+
+
+// STEP 2: Load the class
+// Create: let roster = [];
+// Add these students IN THIS ORDER with roster.push(new Student(...)),
+// each inside its OWN try/catch that logs err.message:
+//     "Ava"    [92, 88, 95]
+//     "Ben"    [75, 82, 80]
+//     "Finn"   [88, "ninety", 91]
+//     "Chloe"  [68, 71, 59]
+//     "Diego"  [85, 90, 78]
+//     "Gia"    [94, -5, 87]
+//     "Emma"   [55, 62, 48]
+
+
+// STEP 3: Letter grades
+// Write getLetter(average) that returns "A" (90+), "B" (80+),
+// "C" (70+), "D" (60+), or "F".
+// Use an if...else if chain OR a switch. Check the highest grade first!
+
+
+// STEP 4: Highest and lowest
+// Write findHighest(list) and findLowest(list).
+// Each uses a for loop and returns the STUDENT OBJECT, not just the number.
+
+
+// STEP 5: Sort
+// Write sortByAverage(list) that sorts from highest to lowest average:
+//     list.sort((a, b) => b.getAverage() - a.getAverage());
+
+
+// STEP 6: Print the report
+// Write printReport(list). It logs:
+//   - a header with today's date using toLocaleDateString("en-US")
+//   - one numbered line per student, with the average formatted by toFixed(1)
+//   - the highest and lowest students
+// Then call sortByAverage(roster); and printReport(roster);
+</script>
+</body>
+</html>

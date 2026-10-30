@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gradebook</title>
+</head>
+<body>
+  <h1>Period 3 Gradebook</h1>
+  <ul id="gradebook"></ul>
+  <h2>Honor Roll</h2>
+  <ul id="honor"></ul>
+
+  <script>
+    let students = [
+      { name: "Maya", average: 94.5 },
+      { name: "Leo", average: 81.4 },
+      { name: "Priya", average: 67.8 },
+      { name: "Sam", average: 88 },
+      { name: "Jordan", average: 72.3 }
+    ];
+
+    // Write your code here, one comment above each task
+
+    // Core 1 - getElementById
+    let list = document.getElementById("gradebook");
+
+    // Core 2 - createElement, textContent, appendChild
+
+    for (let i = 0; i < students.length; i++) {
+      let student = students[i];
+      let li = document.createElement("li");
+      li.textContent = student.name + ": " + student.average;
+      list.appendChild(li);
+    }
+
+    // Core 3 - createElement, textContent, appendChild
+
+    let paras = document.createElement("p");
+    paras.textContent = "Report for " + students.length + " students";
+    document.body.appendChild(paras);
+
+    // Stretch 4 -
+
+    for (let i = 0; i < students.length; i++) {
+      let student = students[i];
+      if (students[i].average >= 90) {
+        let a = document.createElement("li")
+        a.textContent = "(A)"
+
+      } else if (students[i].average >= 80) {
+        let b = document.createElement("li")
+        b.textContent = "(B)"
+        
+      } else if (students[i].average >= 70) {
+        let c = document.createElement("li")
+        c.textContent = "(C)"
+        
+      } else if (students[i].average >= 60) {
+        let d = document.createElement("li")
+        d.textContent = "(D)"
+        
+      } else {
+        let f = document.createElement("li")
+        f.textContent = "(F)"
+        
+      }
+
+      
+      // Stretch 5 - getElementById, createElement, textContent, appendChild
+
+      if (student.average >= 90) {
+        let honorList = document.getElementById("honor");
+        let li = document.createElement("li");
+        li.textContent = student.name + ": " + student.average;
+        honorList.appendChild(li);
+      }
+    }
+
+    
+  
+
+
+  </script>
+</body>
+</html>

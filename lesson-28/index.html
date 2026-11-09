@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pizza Order</title>
+</head>
+<body>
+  <h1>Pizza Order</h1>
+  <form name="order">
+    <p>Name: <input type="text" id="custName"> <span id="nameError"></span></p>
+    <p>Quantity: <input type="text" id="qty"> <span id="qtyError"></span></p>
+    <p>Promo code: <input type="text" id="promo"> <span id="promoError"></span></p>
+    <p>Phone: <input type="text" id="phone"> <span id="phoneError"></span></p>
+    <button type="button" id="orderBtn">Place order</button>
+  </form>
+  <p id="orderStatus"></p>
+  <script>
+    let custName = document.getElementById("custName");
+    let qty = document.getElementById("qty");
+    let promo = document.getElementById("promo");
+    let phone = document.getElementById("phone");
+
+    // Core 1 - textContent, .style.color
+    function showError(id, message) {
+        id.textContent = message;
+        id.style.color = "red";
+    }
+
+    // Core 2 -
+    function checkName() {
+        if (custName.value.trim() === "") {
+            showError(document.getElementById("nameError"), "Enter your name");
+            return false;
+        } else {
+            document.getElementById("nameError").textContent = "";
+            return true;
+        }
+    }
+
+    // Core 3 -
+    function checkQty() {
+        if (qty.value.trim() === "") {
+            showError(document.getElementById("qtyError"), "Enter quantity");
+            return false;
+        } else if (isNaN(qty.value)) {
+            document.getElementById("qtyError").textContent = "Quantity must be a number.";
+            return false;
+        } else if (qty.value < 1 || qty.value > 10) {
+            document.getElementById("qtyError").textContent = "Order 1 to 10 pizzas.";
+            return false;
+        } else {
+            document.getElementById("qtyError").textContent = "";
+            return true;
+        }
+    }
+
+    // Core 4 -
+    function checkPromo() {
+        if (promo.value.trim() === "") {
+            showError(document.getElementById("promoError"), "Enter promo code");
+            return false;
+        } else if (promo.value !== "PIZZA5") {
+            document.getElementById("promoError").textContent = "Invalid promo code.";
+            return false;
+        } else {
+            document.getElementById("promoError").textContent = "";
+            return true;
+        }
+    }
+
+    // Core 5 -
+
+    addEventListener("blur","checkName");
+    addEventListener("blur","checkQty");
+    addEventListener("blur","checkPromo");
+
+    // Core 6 -
+    function placeOrder() {
+        if (checkName() && checkQty() && checkPromo()) {
+            document.getElementById("orderStatus").textContent = "Order placed for " + custName.value.trim() + " !";
+            document.getElementById("orderStatus").style.color = "green";
+        } else {
+            document.getElementById("orderStatus").textContent = "Fix the red messages above.";
+            document.getElementById("orderStatus").style.color = "red";
+        }
+    }
+
+    addEventListener("click", "placeOrder");
+
+  </script>
+</body>
+</html>

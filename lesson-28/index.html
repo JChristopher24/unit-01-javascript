@@ -54,11 +54,13 @@
     }
 
     // Core 4 -
+
+    const CODE = "PIZZA5";
     function checkPromo() {
         if (promo.value.trim() === "") {
             showError(document.getElementById("promoError"), "Enter promo code");
             return false;
-        } else if (promo.value !== "PIZZA5") {
+        } else if (promo.value.toLowerCase() !== CODE.toLowerCase()) {
             document.getElementById("promoError").textContent = "Invalid promo code.";
             return false;
         } else {
@@ -69,18 +71,16 @@
 
     // Core 5 -
 
-    addEventListener("blur","checkName");
-    addEventListener("blur","checkQty");
-    addEventListener("blur","checkPromo");
+    custName.addEventListener("blur", checkName);
+    qty.addEventListener("blur", checkQty);
+    promo.addEventListener("blur", checkPromo);
 
     // Core 6 -
     function placeOrder() {
         if (checkName() && checkQty() && checkPromo()) {
-            document.getElementById("orderStatus").textContent = "Order placed for " + custName.value.trim() + " !";
-            document.getElementById("orderStatus").style.color = "green";
+            showError(document.getElementById("orderStatus"), "Order placed for " + custName.value + ", quantity: " + qty.value + ", promo code: " + promo.value);
         } else {
-            document.getElementById("orderStatus").textContent = "Fix the red messages above.";
-            document.getElementById("orderStatus").style.color = "red";
+            showError(document.getElementById("orderStatus"), "Please fix errors before placing order.");
         }
     }
 

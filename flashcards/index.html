@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exam Watch Flashcards</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<!-- Obj 4.2 / 4.5: onload is an HTML attribute event. It runs startApp() after the page loads. -->
+<body onload="startApp()">
+
+  <!-- CHECKPOINT 1, Step 2: add your <noscript> message on the next line -->
+    <noscript>
+        <p class="error">Turn on JavaScript to use your flashcards.</p>
+    </noscript>
+
+  <header>
+    <h1>Exam Watch Flashcards</h1>
+    <p id="countdown"></p>
+    <p id="screenMsg"></p>
+  </header>
+
+  <main>
+    <!-- STUDY AREA -->
+    <section id="study">
+      <h2>Study</h2>
+      <div id="card" class="card">
+        <p id="cardLabel" class="label">Your card will show here.</p>
+        <p id="cardQuestion" class="question"></p>
+        <p id="cardAnswer" class="answer"></p>
+      </div>
+      <p id="cardNumber" class="small"></p>
+
+      <div class="buttons">
+        <!-- Obj 4.5: onclick written as an HTML attribute -->
+        <button id="flipBtn" onclick="flipCard()">Flip</button>
+        <button id="nextBtn">Next</button>
+        <button id="shuffleBtn">Shuffle</button>
+      </div>
+      <div class="buttons">
+        <button id="gotBtn" class="good">Got it ✓</button>
+        <button id="missBtn" class="bad">Missed it ✗</button>
+        <button id="resetBtn">Reset score</button>
+      </div>
+      <p id="scoreMsg"></p>
+      <p class="small">Tip: press the right arrow key for the next card.</p>
+    </section>
+
+    <!-- MY DECK -->
+    <section id="deckSection">
+      <h2>My deck (<span id="cardCount">0</span> cards)</h2>
+      <label for="searchBox">Search my cards</label>
+      <input type="text" id="searchBox" placeholder="Type a word, like typeof">
+      <p id="searchMsg" class="small"></p>
+      <ol id="cardList"></ol>
+    </section>
+
+    <!-- ADD A CARD -->
+    <section id="addSection">
+      <h2>Add a card</h2>
+      <!-- Obj 5.3: onsubmit="return addCard()" -- return false cancels the submit -->
+      <form id="addForm" name="addForm" action="" method="post" onsubmit="return addCard()">
+        <label for="questionInput">Question (exactly how the exam would show it)</label>
+        <input type="text" id="questionInput" name="question">
+        <p id="hintMsg" class="small"></p>
+
+        <label for="answerInput">Answer (and a short why)</label>
+        <input type="text" id="answerInput" name="answer">
+
+        <label for="objectiveSelect">Exam objective</label>
+        <select id="objectiveSelect" name="objective">
+          <option value="">-- pick one --</option>
+          <option value="1.1">1.1 Assignment and arithmetic operators</option>
+          <option value="1.2">1.2 Best practices</option>
+          <option value="1.3">1.3 Internal and external scripts</option>
+          <option value="1.4">1.4 Exception handling</option>
+          <option value="1.5">1.5 Browser Object Model</option>
+          <option value="2.1">2.1 Primitive data types</option>
+          <option value="2.2">2.2 Arrays</option>
+          <option value="2.3">2.3 Objects and Date</option>
+          <option value="2.4">2.4 Math functions</option>
+          <option value="2.5">2.5 Functions and scope</option>
+          <option value="3.1">3.1 Logical and comparison operators</option>
+          <option value="3.2">3.2 Decision statements</option>
+          <option value="3.3">3.3 Loops</option>
+          <option value="4.1">4.1 DOM tree</option>
+          <option value="4.2">4.2 Event types</option>
+          <option value="4.3">4.3 Output to HTML</option>
+          <option value="4.4">4.4 Locate, modify, and add elements</option>
+          <option value="4.5">4.5 Event handlers and listeners</option>
+          <option value="5.1">5.1 Form values</option>
+          <option value="5.2">5.2 Input validation</option>
+          <option value="5.3">5.3 Form submission</option>
+        </select>
+        <p id="domainMsg" class="small"></p>
+
+        <p id="formError" class="error"></p>
+        <button type="submit">Add card</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- CHECKPOINT 1, Step 1: add the <script> tag for app.js on the next line -->
+    <script src="app.js"></script>
+</body>
+</html>

@@ -2,11 +2,13 @@
 
 const EXAM_DATE = new Date(2026, 10, 25);
 
+let msg = document.getElementById("screenMsg");
+
 function checkScreen() {
     if (window.innerWidth < 600) {
-        showError(document.getElementById("screenMsg"), "Small screen: turn your device sideways for a bigger card.")   
+        msg.textContent = "Small screen: turn your device sideways for a bigger card.";
     } else {
-        showError(document.getElementById("screenMsg"), "Window width: " + window.innerWidth + "px")
+        msg.textContent = "Window width: " + window.innerWidth + "px";
     }
 }
 

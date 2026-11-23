@@ -17,6 +17,7 @@ function checkScreen() {
 function startApp() {
     checkScreen();
 
+    // Checkpoint 3
     document.getElementById("nextBtn").addEventListener("click", nextCard);
     document.getElementById("card").addEventListener("mouseover", highlightCard);
     document.getElementById("card").addEventListener("mouseout", unhighlightCard);
@@ -109,12 +110,12 @@ let current = 0;
 
     function highlightCard() {
         let card = document.getElementById("card");
-        card.classList = "card highlight";
+        card.className = "card highlight";
     }
 
     function unhighlightCard() {
         let card = document.getElementById("card");
-        card.classList = "card";
+        card.className = "card";
     }
 
     function checkKey(event) {

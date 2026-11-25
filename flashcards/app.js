@@ -36,6 +36,12 @@ function startApp() {
     updateScore();
     showCountdown();
 
+    // Checkpoint 5
+
+    
+    document.getElementById("searchBox").addEventListener("keyup", searchDeck);
+
+    renderList();
 }
 
 // Checkpoint 2
@@ -189,7 +195,40 @@ function resetScore() {
 function showCountdown() {
     let date = new Date();
     document.getElementById("countdown").textContent = Math.ceil((EXAM_DATE - date) / (1000 * 60 * 60 * 24)) + " days until exam day " + EXAM_DATE.toLocaleDateString("en-US");
-    if ( date >= EXAM_DATE ) {
+    if ( date = new Date() ) {
         document.getElementById("countdown").textContent = "Exam day is here " + EXAM_DATE.toLocaleDateString("en-US") + " You've got this!";
+    }
+}
+
+// Checkpoint 5
+
+function renderList() {
+    document.getElementById("cardList").innerHTML = "";
+
+    for (let i = 0; i < deck.length; i++) {
+        let li = document.createElement("li");
+        li.textContent = deck[i].question + " [" + deck[i].answer + "]";
+        document.getElementById("cardList").appendChild(li);
+    }
+
+    document.getElementById("cardCount").textContent = deck.length;
+}
+
+function searchDeck() {
+    let list = document.getElementById("searchBox").value.toLowerCase();
+    let lists = document.getElementsByTagName("li");
+
+    for (let i = 0; i < lists.length; i++) {
+        if (list.trim() === "") {
+            lists[i].classList = "";
+            document.getElementById("searchMsg").textContent = "";
+        }
+        else if (lists[i].textContent.toLowerCase().includes(list.trim())) {
+            lists[i].classList = "match";
+            document.getElementById("searchMsg").textContent = document.getElementsByClassName("match").length + " matches found for " + '"' + list + '"';
+        } else {
+            lists[i].classList= "";
+            document.getElementById("searchMsg").textContent = ""
+        }
     }
 }
